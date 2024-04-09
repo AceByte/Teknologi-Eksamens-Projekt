@@ -6,5 +6,3 @@ Live Share - VSCode extension : https://marketplace.visualstudio.com/items?itemN
 Life Preview - VSCode extension : https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server
 
 Git - Windows program : https://git-scm.com/download/win
-
-victor er en gay midget neger
