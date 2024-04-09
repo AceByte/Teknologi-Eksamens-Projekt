@@ -1,3 +1,5 @@
 # Teknologi-Eksamens-Projekt
-Molin er tyk
-bertram er en neger
+Molin, Thau & Bischoff.
+## Ting som skal Installeres
+    Live Share - VSCode extention
+    Git - Windows program
