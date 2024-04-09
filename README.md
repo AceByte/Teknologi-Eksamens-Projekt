@@ -7,4 +7,4 @@ Life Preview - VSCode extension : https://marketplace.visualstudio.com/items?ite
 
 Git - Windows program : https://git-scm.com/download/win
 
-victor er gay
+victor er en gay midget neger
