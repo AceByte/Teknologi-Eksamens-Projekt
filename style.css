@@ -1,0 +1,96 @@
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    font-family: 'headers';
+    background-color: #ffffff;
+    color: #5c5c5c;
+    text-align: left;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 10px 10px 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    font-family: 'headers';
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#main-sections-container {
+    padding: 20px;
+}
+
+#balance {
+    font-family: 'text';
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#current-balance {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 24px;
+}
+
+#purchases-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#purchases-list li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+#purchases-list li:last-child {
+    border-bottom: none;
+}
+
+#purchases-list li span {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #ffffff;
+    color: #5c5c5c;
+    text-align: left;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 10px 10px 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
