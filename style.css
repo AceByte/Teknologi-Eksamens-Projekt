@@ -1,11 +1,11 @@
 /* style.css */
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
-
 @font-face {
     font-family: 'text'; 
     src: url('fonts/Ubuntu-Regular.ttf') format('truetype');
@@ -23,17 +23,25 @@ header {
     text-align: left;
     border-radius: 10px;
     padding: 20px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px,10px,10px,10px;
     position: fixed;
     bottom: 0;
     width: 100%;
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1 {
     font-family: 'headers';
     color: #000000;
     margin-bottom: 10px;
+    font-size: 24px;
+}
+
+h2 {
+    font-family: 'headers';
+    color: #000000;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 nav ul {
@@ -90,6 +98,88 @@ nav ul li a {
     color: #4CAF50;
     font-weight: bold;
 }
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    font-family: 'headers';
+    color: #fff;
+    padding: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#main-sections-container {
+    padding: 20px;
+}
+
+#balance {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#balance h1 {
+    font-family: 'headers';
+    margin-bottom: 10px;
+}
+
+#current-balance {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 24px;
+}
+
+.positive {
+    color: #4CAF50; /* Green */
+}
+
+.negative {
+    color: #ff3333; /* Red */
+}
+
+#purchases-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#purchases-list li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+#purchases-list li:last-child {
+    border-bottom: none;
+}
+
+#purchases-list li span {
+    color: #4CAF50;
+    font-weight: bold;
+}
 
 footer {
     background-color: #ffffff;
@@ -97,7 +187,7 @@ footer {
     text-align: left;
     border-radius: 10px;
     padding: 20px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px,10px,10px,10px;
     position: fixed;
     bottom: 0;
     width: 100%;
