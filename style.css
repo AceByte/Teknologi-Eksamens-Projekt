@@ -1,10 +1,19 @@
 /* style.css */
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+}
+
+@font-face {
+    font-family: 'text'; 
+    src: url('fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'headers';
+    src: url('fonts/MartianMono-VariableFont_wdth,wght.ttf') format('truetype');
 }
 
 header {
