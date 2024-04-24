@@ -5,7 +5,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    overflow-x: hidden; /* Disable sideways scrolling */
+    display: flex; /* Center header and footer */
+    flex-direction: column; /* Center header and footer */
+    justify-content: center; /* Center header and footer */
 }
+
 @font-face {
     font-family: 'text'; 
     src: url('fonts/Ubuntu-Regular.ttf') format('truetype');
@@ -16,32 +21,30 @@ body {
     src: url('fonts/MartianMono-VariableFont_wdth,wght.ttf') format('truetype');
 }
 
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
 header {
     font-family: 'headers';
     background-color: #ffffff;
-    color: #5c5c5c;
-    text-align: left;
+    color: #000000;
     border-radius: 10px;
     padding: 20px;
-    margin: 10px,10px,10px,10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    top: 0;
+    position: sticky;
+    margin: 10px auto; /* Center the header horizontally */
+    width: 90%; /* Adjust the width as needed */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Add this */
+    align-items: center; /* Add this */
+    justify-content: center; /* Add this */
 }
 
-h1 {
-    font-family: 'headers';
+header h1,
+header h2 {
     color: #000000;
-    margin-bottom: 10px;
-    font-size: 24px;
-}
-
-h2 {
-    font-family: 'headers';
-    color: #000000;
-    margin-bottom: 10px;
-    font-size: 20px;
 }
 
 nav ul {
@@ -55,10 +58,81 @@ nav ul li {
     margin-right: 20px;
 }
 
+nav ul li.right {
+    float: right;
+}
+
 nav ul li a {
     text-decoration: none;
-    color: #fff;
 }
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+    float: right; /* Align dropdown to the right */
+
+}
+
+button {
+    width: 10em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+   }
+   
+   button::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   button:hover::before {
+    width: 10em;
+   }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f2f2f2;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; /* Align dropdown to the right */
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* End Dropdown menu */
 
 #main-sections-container {
     padding: 20px;
@@ -98,88 +172,6 @@ nav ul li a {
     color: #4CAF50;
     font-weight: bold;
 }
-/* style.css */
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    font-family: 'headers';
-    color: #fff;
-    padding: 10px 0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-#main-sections-container {
-    padding: 20px;
-}
-
-#balance {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-#balance h1 {
-    font-family: 'headers';
-    margin-bottom: 10px;
-}
-
-#current-balance {
-    font-weight: bold;
-    color: #4CAF50;
-    font-size: 24px;
-}
-
-.positive {
-    color: #4CAF50; /* Green */
-}
-
-.negative {
-    color: #ff3333; /* Red */
-}
-
-#purchases-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#purchases-list li {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-}
-
-#purchases-list li:last-child {
-    border-bottom: none;
-}
-
-#purchases-list li span {
-    color: #4CAF50;
-    font-weight: bold;
-}
 
 footer {
     background-color: #ffffff;
@@ -187,9 +179,6 @@ footer {
     text-align: left;
     border-radius: 10px;
     padding: 20px;
-    margin: 10px,10px,10px,10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin: 10px 0;
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
 }

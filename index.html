@@ -8,15 +8,24 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#balance">Balance</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#balance">Balance</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn" ><button type="button" class="option-button">Menu</button></a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Profile</a>
+                            <a href="login.html">Login</a>
+                            <a href="register.html">Register</a>
+                            <a href="logout.html">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
     <section id="main-sections-container">
@@ -30,11 +39,11 @@
             <p>Your current balance: <span id="current-balance">$500</span></p>
             <h2>Purchases</h2>
             <ul id="purchases-list">
-                <li>Groceries -500</li>
-                <li>Rent -10000</li>
-                <li>Utilities -150</li>
-                <li>Gas -50</li>
-                <li>Paycheck +100000</li>
+                <li class="amount">Groceries -500</li>
+                <li class="amount">Rent -10000</li>
+                <li class="amount">Utilities -150</li>
+                <li class="amount">Gas -50</li>
+                <li class="amount">Paycheck +100000</li>
             </ul>
         </section>
 
@@ -45,7 +54,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Manage Your Economy</p>
+        <div class="container">
+            <p>&copy; 2024 Manage Your Economy</p>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>

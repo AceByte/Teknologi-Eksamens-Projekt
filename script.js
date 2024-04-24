@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const amounts = document.querySelectorAll('.amount');
 
     amounts.forEach(amount => {
-        const value = parseInt(amount.textContent);
-        if (value < 0) {
+        const value = amount.textContent.trim();
+        if (value.includes("-")) {
             amount.classList.add('negative');
-        } else {
+        } else if (value.includes("+")) {
             amount.classList.add('positive');
         }
     });
