@@ -15,7 +15,7 @@
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="dropbtn" ><button type="button" class="option-button">Menu</button></a>
                         <div class="dropdown-content">
-                            <a href="profile.html">Profile</a>
+                            <a href="profil.html">Profile</a>
                             <a href="login.html">Login</a>
                             <a href="register.html">Register</a>
                             <a href="logout.html">Logout</a>
@@ -31,14 +31,26 @@
             <h1>Profile</h1>
             <div>
                 <label for="username">Username:</label>
-                <span id="username">JohnDoe</span>
+                <span id="username"></span>
+                <form id="changeUsernameForm">
+                    <input type="text" id="newUsername" required>
+                </form>
             </div>
             <div>
                 <label for="email">Email:</label>
-                <span id="email">johndoe@example.com</span>
+                <span id="email"></span>
+                <form id="changeEmailForm">
+                    <input type="text" id="newEmail" required>
+                </form>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <span id="password"></span>
+                <form id="changePasswordForm">
+                    <input type="password" id="newPassword" required>
+                </form>
             </div>
         </section>
-
     </section>
 
     <footer>
@@ -49,5 +61,7 @@
             </section>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

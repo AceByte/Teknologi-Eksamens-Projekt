@@ -95,7 +95,7 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    background-image: linear-gradient(to left, #0fd850 0%, #f9f047 100%);
     transition: .5s ease;
     display: block;
     z-index: -1;

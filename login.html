@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="loginstyle.css">
 </head>
 <body>
-    <form action="login.php" method="POST">
+    <form id="loginForm">
         <h2>Login</h2>
         <div>
             <label for="username">Username:</label>
@@ -17,11 +17,13 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit" class="submit">Login</button>
+        <button type="button" id="loginButton" class="submit">Login</button>
         <div class="options">
             <a href="register.html"><button type="button">Register</button></a>
             <a href="forgot_password.html"><button type="button">Forgot Password?</button></a>            
         </div>
     </form>
+
+    <script src="script.js"></script>
 </body>
 </html>
