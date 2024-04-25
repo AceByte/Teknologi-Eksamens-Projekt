@@ -1,70 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">  <title>My Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Manage Your Economy - Profile</title>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <ul>
-          </ul>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn" ><button type="button" class="option-button">Menu</button></a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Profile</a>
+                            <a href="login.html">Login</a>
+                            <a href="register.html">Register</a>
+                            <a href="logout.html">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="main-sections-container">
+        <section id="profile">
+            <h1>Profile</h1>
+            <div>
+                <label for="username">Username:</label>
+                <span id="username">JohnDoe</span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <span id="email">johndoe@example.com</span>
+            </div>
+        </section>
 
-  <main>
-    <div class="profile-container">
-      <img src="profile-picture.jpg" alt="Profile Picture">
+    </section>
 
-      <div class="profile-info">
-        <h2>John Doe</h2>
-        <p>Software Engineer</p>
-        <a href="mailto:john.doe@example.com">john.doe@example.com</a>
-      </div>
-    </div>
-
-    <div class="settings">
-      <h2>Settings</h2>
-
-      <ul class="settings-list">
-        <li>
-          <h3>Account</h3>
-          <ul>
-            <li><a href="#">Change Password</a></li>
-            <li><a href="#">Update Email</a></li>
-            <li><a href="#">Deactivate Account</a></li>
-          </ul>
-        </li>
-        <li>
-          <h3>Preferences</h3>
-          <ul>
-            <li>
-              <label for="language">Language:</label>
-              <select name="language" id="language">
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-              </select>
-            </li>
-            <li>
-              <label for="theme">Theme:</light>
-              <select name="theme" id="theme">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-              </select>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      </div>
-  </footer>
+    <footer>
+        <div class="container">
+            <section id="contact">
+                <h1>Contact Us</h1>
+                <p>Have questions or need assistance? Feel free to reach out to us at <a href="mailto:info@example.com">info@example.com</a></p>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>
