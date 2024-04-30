@@ -36,7 +36,22 @@
 
         <section id="balance">
             <h1>Balance</h1>
-            <p>Your current balance: <span id="current-balance">$500</span></p>
+            <p>Your current balance: <span id="current-balance">$<span id="totalAmount">0</span></span></p>
+            <h2>Envelopes</h2>
+            <div id="envelopes">
+                <div>
+                    <label for="envelope1">Envelope 1:</label>
+                    <span>$<span id="envelope1">0</span></span>
+                </div>
+                <div>
+                    <label for="envelope2">Envelope 2:</label>
+                    <span>$<span id="envelope2">0</span></span>
+                </div>
+                <div>
+                    <label for="envelope3">Envelope 3:</label>
+                    <span>$<span id="envelope3">0</span></span>
+                </div>
+            </div>
             <h2>Purchases</h2>
             <ul id="purchases-list">
                 <li class="amount">Groceries -500</li>
@@ -46,7 +61,6 @@
                 <li class="amount">Paycheck +100000</li>
             </ul>
         </section>
-
     </section>
 
     <footer>
