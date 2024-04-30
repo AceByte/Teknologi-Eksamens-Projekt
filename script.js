@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var envelopesSection = document.getElementById("envelopes");
     if (envelopesSection) {
-        var totalAmount = parseInt(localStorage.getItem("totalAmount")) || 0;
+        var totalAmount = parseInt(localStorage.getItem("totalAmount")) || 1000;
         var envelopeInputs = [];
 
         // Create a separate element for unassigned amount
@@ -208,4 +208,8 @@ document.addEventListener("DOMContentLoaded", function() {
             envelopeElement.value = envelope.value;
         }
     });
+});
+
+document.getElementById('logoutButton').addEventListener('click', function() {
+    localStorage.clear();
 });
