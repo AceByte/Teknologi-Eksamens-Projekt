@@ -32,14 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var usernameSpan = document.getElementById("username");
     var emailSpan = document.getElementById("email");
     var passwordSpan = document.getElementById("password");
-
-    if (currentPage === "login.html" || currentPage === "register.html") {
-    if (!username || !email || !password) {
-        localStorage.clear();
-        window.location.href = "login.html";
-        return;
-    }
-    }
     if (usernameSpan && emailSpan && passwordSpan) {
         var username = localStorage.getItem("username");
         var email = localStorage.getItem("email");
