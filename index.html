@@ -39,26 +39,27 @@
             <p>Your current balance: <span id="current-balance">$<span id="totalAmount">0</span></span></p>
             <h2>Envelopes</h2>
             <div id="envelopes">
-                <div>
-                    <label for="envelope1">Envelope 1:</label>
-                    <span>$<span id="envelope1">0</span></span>
-                </div>
-                <div>
-                    <label for="envelope2">Envelope 2:</label>
-                    <span>$<span id="envelope2">0</span></span>
-                </div>
-                <div>
-                    <label for="envelope3">Envelope 3:</label>
-                    <span>$<span id="envelope3">0</span></span>
-                </div>
+
             </div>
+            <!-- Unassigned Amount -->
+            <p>Unassigned Amount: $<span id="unassignedAmount"></span></p>
             <h2>Purchases</h2>
             <ul id="purchases-list">
-                <li class="amount">Groceries -500</li>
-                <li class="amount">Rent -10000</li>
-                <li class="amount">Utilities -150</li>
-                <li class="amount">Gas -50</li>
-                <li class="amount">Paycheck +100000</li>
+                <!-- Purchase 1 -->
+                <li>
+                    <span>Purchase 1:</span>
+                    <span>$<span id="purchase1">0</span></span>
+                </li>
+                <!-- Purchase 2 -->
+                <li>
+                    <span>Purchase 2:</span>
+                    <span>$<span id="purchase2">0</span></span>
+                </li>
+                <!-- Purchase 3 -->
+                <li>
+                    <span>Purchase 3:</span>
+                    <span>$<span id="purchase3">0</span></span>
+                </li>
             </ul>
         </section>
     </section>
@@ -67,7 +68,25 @@
         <div class="container">
             <section id="contact">
                 <h1>Contact Us</h1>
-                <p>Have questions or need assistance? Feel free to reach out to us at <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Have questions or need assistance? Feel free to reach out to us at 
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td>Bertram Bischoff</td>
+                            <td><a href="mailto:bebi2@elev.tec.dk">bebi2@elev.tec.dk</a></td>
+                        </tr>
+                        <tr>
+                            <td>Frederik Molin</td>
+                            <td><a href="mailto:frmo2@elev.tec.dk">frmo2@elev.tec.dk</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nicolai Thau</td>
+                            <td><a href="mailto:nith1@elev.tec.dk">nith1@elev.tec.dk</a></td>
+                        </tr>
+                        </table></p>
             </section>
         </div>
     </footer>

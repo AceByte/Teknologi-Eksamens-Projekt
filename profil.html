@@ -52,18 +52,17 @@
             </div>
             <h2>Envelopes</h2>
             <div id="envelopes">
-                <div>
 
-                </div>
             </div>
-            <button id="addEnvelopeButton">Add Envelope</button>
-            <button id="removeEnvelopeButton">Remove Envelope</button>
+
             <h2>Total Account Balance</h2>
             <div>
                 <label for="totalAmount">Total Amount:</label>
-                <span id="totalAmount">0</span>
+                <span id="totalAmount"></span>
+                <form id="changeTotalAmountForm">
+                    <input type="number" id="newTotalAmount" required>
+                </form>
             </div>
-            <button id="updateBudgetButton">Update Budget</button>
         </section>
     </section>
 
@@ -71,7 +70,25 @@
         <div class="container">
             <section id="contact">
                 <h1>Contact Us</h1>
-                <p>Have questions or need assistance? Feel free to reach out to us at <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Have questions or need assistance? Feel free to reach out to us at 
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td>Bertram Bischoff</td>
+                            <td><a href="mailto:bebi2@elev.tec.dk">bebi2@elev.tec.dk</a></td>
+                        </tr>
+                        <tr>
+                            <td>Frederik Molin</td>
+                            <td><a href="mailto:frmo2@elev.tec.dk">frmo2@elev.tec.dk</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nicolai Thau</td>
+                            <td><a href="mailto:nith1@elev.tec.dk">nith1@elev.tec.dk</a></td>
+                        </tr>
+                        </table></p>
             </section>
         </div>
     </footer>

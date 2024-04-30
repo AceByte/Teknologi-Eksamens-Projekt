@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var loginButton = document.getElementById("loginButton");
     var registerButton = document.getElementById("registerButton");
 
+    var previousValues = {};
+
     if (loginForm) {
         loginButton.addEventListener("click", function() {
             var username = document.getElementById("username").value;
@@ -72,45 +74,55 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    var changeTotalAmountForm = document.getElementById("changeTotalAmountForm");
+
+    if (changeTotalAmountForm) {
+        changeTotalAmountForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var newTotalAmount = document.getElementById("newTotalAmount").value;
+            if (isNaN(newTotalAmount) || newTotalAmount <= 0) {
+                alert("Please enter a valid total amount.");
+                return;
+            }
+            localStorage.setItem("totalAmount", newTotalAmount);
+            document.getElementById("totalAmount").innerText = newTotalAmount;
+            updateUnassignedAmount();
+            alert("Total amount changed successfully!");
+        });
+    }
+
     var envelopesSection = document.getElementById("envelopes");
     if (envelopesSection) {
         var totalAmount = parseInt(localStorage.getItem("totalAmount")) || 0;
         var envelopeInputs = [];
 
-        function updateEnvelopes() {
-            totalAmount = 0;
-            for (var i = 0; i < envelopeInputs.length; i++) {
-                totalAmount += parseInt(envelopeInputs[i].value);
-            }
-            document.getElementById("totalAmount").innerText = totalAmount;
-
-            localStorage.setItem("totalAmount", totalAmount);
-        }
-
-        // Initial envelope
-        var envelopeDiv = document.createElement("div");
-        var envelopeLabel = document.createElement("label");
-        envelopeLabel.textContent = "1:";
-        var envelopeInput = document.createElement("input");
-        envelopeInput.type = "number";
-        envelopeInput.id = "envelope1";
-        envelopeInput.required = true;
-        envelopeDiv.appendChild(envelopeLabel);
-        envelopeDiv.appendChild(envelopeInput);
-        envelopesSection.appendChild(envelopeDiv);
-        envelopeInputs.push(envelopeInput);
-
-        envelopeInput.addEventListener("input", function() {
-            updateEnvelopes();
-        });
+        // Create a separate element for unassigned amount
+        var unassignedAmountDiv = document.createElement("div");
+        var unassignedAmountLabel = document.createElement("label");
+        unassignedAmountLabel.textContent = "Unassigned Amount:";
+        var unassignedAmountText = document.createElement("span");
+        unassignedAmountText.id = "unassignedAmount";
+        unassignedAmountDiv.appendChild(unassignedAmountLabel);
+        unassignedAmountDiv.appendChild(unassignedAmountText);
+        envelopesSection.appendChild(unassignedAmountDiv);
 
         // Add new envelope
-        var addEnvelopeButton = document.getElementById("addEnvelopeButton");
+        var addEnvelopeButton = document.createElement("button");
+        addEnvelopeButton.textContent = "Add Envelope";
+        addEnvelopeButton.className = "thing"; // Add class
+        envelopesSection.appendChild(addEnvelopeButton);
+
+        // Remove envelope
+        var removeEnvelopeButton = document.createElement("button");
+        removeEnvelopeButton.textContent = "Remove Envelope";
+        removeEnvelopeButton.className = "thing"; // Add class
+        envelopesSection.appendChild(removeEnvelopeButton);
+
         addEnvelopeButton.addEventListener("click", function() {
             var newEnvelopeNumber = envelopeInputs.length + 1;
             var newEnvelopeDiv = document.createElement("div");
             var newEnvelopeLabel = document.createElement("label");
-            newEnvelopeLabel.textContent = newEnvelopeNumber + ":";
+            newEnvelopeLabel.textContent = "Envelope " + newEnvelopeNumber + ":";
             var newEnvelopeInput = document.createElement("input");
             newEnvelopeInput.type = "number";
             newEnvelopeInput.id = "envelope" + newEnvelopeNumber;
@@ -121,18 +133,79 @@ document.addEventListener("DOMContentLoaded", function() {
             envelopeInputs.push(newEnvelopeInput);
 
             newEnvelopeInput.addEventListener("input", function() {
-                updateEnvelopes();
+                if (this.value < 0) {
+                    this.value = 0;
+                }
+                previousValues[this.id] = this.value;
+                updateUnassignedAmount(this.id);
             });
+
+            if (envelopeInputs.length >= 5) {
+                addEnvelopeButton.style.display = 'none';
+            }
+            if (envelopeInputs.length >= 0) {
+                removeEnvelopeButton.style.display = '';
+            }
+
+            // Save envelopes after creating a new one
+            updateUnassignedAmount();
         });
 
-        // Remove last envelope
-        var removeEnvelopeButton = document.getElementById("removeEnvelopeButton");
         removeEnvelopeButton.addEventListener("click", function() {
-            if (envelopeInputs.length > 1) {
-                var removedEnvelope = envelopeInputs.pop();
-                removedEnvelope.parentElement.remove();
-                updateEnvelopes();
+            if (envelopeInputs.length > 0) { // Ensure there is always at least 1 envelope
+                var lastEnvelopeInput = envelopeInputs.pop();
+                envelopesSection.removeChild(lastEnvelopeInput.parentNode);
             }
+
+            if (envelopeInputs.length <= 0) {
+                removeEnvelopeButton.style.display = 'none';
+            }
+            if (envelopeInputs.length < 5) {
+                addEnvelopeButton.style.display = '';
+            }
+
+            // Save envelopes after removing one
+            updateUnassignedAmount();
         });
+
+        function updateUnassignedAmount(lastModifiedId) {
+            var totalAssignedAmount = 0;
+            for (var i = 0; i < envelopeInputs.length; i++) {
+                totalAssignedAmount += parseInt(envelopeInputs[i].value) || 0;
+            }
+            if (totalAssignedAmount > totalAmount) {
+                alert("The total amount in the envelopes cannot exceed the total amount.");
+                document.getElementById(lastModifiedId).value = previousValues[lastModifiedId];
+                return;
+            }
+            var unassignedAmount = totalAmount - totalAssignedAmount;
+            document.getElementById("unassignedAmount").innerText = unassignedAmount >= 0 ? unassignedAmount : 0;
+
+            // Store the unassigned amount, total amount, and envelopes in localStorage
+            localStorage.setItem("unassignedAmount", unassignedAmount);
+            localStorage.setItem("totalAmount", totalAmount);
+            localStorage.setItem("envelopes", JSON.stringify(envelopeInputs.map(input => ({id: input.id, value: input.value || 0}))));
+        }
+
+        document.getElementById("totalAmount").innerText = totalAmount;
+        updateUnassignedAmount();
     }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    var unassignedAmount = localStorage.getItem("unassignedAmount");
+    var totalAmount = localStorage.getItem("totalAmount");
+    var envelopes = JSON.parse(localStorage.getItem("envelopes"));
+
+    // Display the unassigned amount and total amount
+    document.getElementById("unassignedAmount").innerText = unassignedAmount;
+    document.getElementById("totalAmount").innerText = totalAmount;
+
+    // Display the envelopes
+    envelopes.forEach(function(envelope) {
+        var envelopeElement = document.getElementById(envelope.id);
+        if (envelopeElement) {
+            envelopeElement.value = envelope.value;
+        }
+    });
 });
