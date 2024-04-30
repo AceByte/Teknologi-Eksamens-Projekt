@@ -71,5 +71,61 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.reload();
         });
     }
+
+    var envelopesSection = document.getElementById("envelopes");
+    if (envelopesSection) {
+        var totalAmount = parseInt(localStorage.getItem("totalAmount")) || 0;
+        var envelopeInputs = [];
+
+        function updateEnvelopes() {
+            totalAmount = 0;
+            for (var i = 0; i < envelopeInputs.length; i++) {
+                totalAmount += parseInt(envelopeInputs[i].value);
+            }
+            document.getElementById("totalAmount").innerText = totalAmount;
+
+            localStorage.setItem("totalAmount", totalAmount);
+        }
+
+        // Initial envelope
+        var envelopeDiv = document.createElement("div");
+        var envelopeLabel = document.createElement("label");
+        envelopeLabel.textContent = "1:";
+        var envelopeInput = document.createElement("input");
+        envelopeInput.type = "number";
+        envelopeInput.id = "envelope1";
+        envelopeInput.required = true;
+        envelopeDiv.appendChild(envelopeLabel);
+        envelopeDiv.appendChild(envelopeInput);
+        envelopesSection.appendChild(envelopeDiv);
+        envelopeInputs.push(envelopeInput);
+
+        envelopeInput.addEventListener("input", function() {
+            updateEnvelopes();
+        });
+
+        // Add new envelope
+        var addEnvelopeButton = document.createElement("button");
+        addEnvelopeButton.textContent = "Add Envelope";
+        envelopesSection.appendChild(addEnvelopeButton);
+
+        addEnvelopeButton.addEventListener("click", function() {
+            var newEnvelopeNumber = envelopeInputs.length + 1;
+            var newEnvelopeDiv = document.createElement("div");
+            var newEnvelopeLabel = document.createElement("label");
+            newEnvelopeLabel.textContent = newEnvelopeNumber + ":";
+            var newEnvelopeInput = document.createElement("input");
+            newEnvelopeInput.type = "number";
+            newEnvelopeInput.id = "envelope" + newEnvelopeNumber;
+            newEnvelopeInput.required = true;
+            newEnvelopeDiv.appendChild(newEnvelopeLabel);
+            newEnvelopeDiv.appendChild(newEnvelopeInput);
+            envelopesSection.insertBefore(newEnvelopeDiv, addEnvelopeButton);
+            envelopeInputs.push(newEnvelopeInput);
+
+            newEnvelopeInput.addEventListener("input", function() {
+                updateEnvelopes();
+            });
+        });
+    }
 });
- 
