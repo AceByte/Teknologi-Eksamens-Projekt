@@ -105,10 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         // Add new envelope
-        var addEnvelopeButton = document.createElement("button");
-        addEnvelopeButton.textContent = "Add Envelope";
-        envelopesSection.appendChild(addEnvelopeButton);
-
+        var addEnvelopeButton = document.getElementById("addEnvelopeButton");
         addEnvelopeButton.addEventListener("click", function() {
             var newEnvelopeNumber = envelopeInputs.length + 1;
             var newEnvelopeDiv = document.createElement("div");
@@ -126,6 +123,16 @@ document.addEventListener("DOMContentLoaded", function() {
             newEnvelopeInput.addEventListener("input", function() {
                 updateEnvelopes();
             });
+        });
+
+        // Remove last envelope
+        var removeEnvelopeButton = document.getElementById("removeEnvelopeButton");
+        removeEnvelopeButton.addEventListener("click", function() {
+            if (envelopeInputs.length > 1) {
+                var removedEnvelope = envelopeInputs.pop();
+                removedEnvelope.parentElement.remove();
+                updateEnvelopes();
+            }
         });
     }
 });
