@@ -1,14 +1,12 @@
-/* style.css */
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    overflow-x: hidden; /* Disable sideways scrolling */
-    display: flex; /* Center header and footer */
-    flex-direction: column; /* Center header and footer */
-    justify-content: center; /* Center header and footer */
+    overflow-x: hidden; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
 }
 
 @font-face {
@@ -34,12 +32,12 @@ header {
     padding: 20px;
     top: 0;
     position: sticky;
-    margin: 10px auto; /* Center the header horizontally */
-    width: 90%; /* Adjust the width as needed */
+    margin: 10px auto;
+    width: 90%;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex; /* Add this */
-    align-items: center; /* Add this */
-    justify-content: center; /* Add this */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header h1,
@@ -66,11 +64,9 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Dropdown menu */
 .dropdown {
     position: relative;
-    float: right; /* Align dropdown to the right */
-
+    float: right;
 }
 
 button:not(.thing) {
@@ -158,8 +154,6 @@ button:not(.thing) {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-/* End Dropdown menu */
 
 #main-sections-container {
     padding: 20px;
