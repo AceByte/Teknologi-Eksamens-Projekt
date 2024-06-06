@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="loginstyle.css">
 </head>
 <body>
-    <form id="registerForm">
+    <form id="registerForm" action="register.php" method="POST">
         <h2>Register</h2>
+        <div>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
         <div>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -18,15 +22,22 @@
             <input type="email" id="email" name="email" required>
         </div>
         <div>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button type="button" id="registerButton" class="submit">Register</button>
+        <button type="submit" id="registerButton" class="submit">Register</button>
         <div class="options">
             <a href="login.html"><button type="button" class="option-button">Login</button></a>
-            <a href="forgot_password.html"><button type="button" class="option-button">Forgot Password?</button></a>            
+            <a href="forgot_password.html"><button type="button" class="option-button">Forgot Password?</button></a>
         </div>
     </form>
-    <script src="script.js"></script>
 </body>
 </html>
