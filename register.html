@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="loginstyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <form id="registerForm" action="register.php" method="POST">
+    <form id="registerForm" onsubmit="register(); return false;">
         <h2>Register</h2>
         <div>
             <label for="fullname">Full Name:</label>

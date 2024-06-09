@@ -1,17 +1,12 @@
-<?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.html");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
     <link rel="stylesheet" href="style.css">
-    <title>Manage Your Economy - Profile</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
                             <a href="profil.html">Profile</a>
                             <a href="login.html">Login</a>
                             <a href="register.html">Register</a>
-                            <a href="logout.php" id="logoutButton">Logout</a>
+                            <a href="javascript:void(0)" id="logoutButton">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -37,54 +32,54 @@ if (!isset($_SESSION['user_id'])) {
             <h1>Profile</h1>
             <div>
                 <label for="fullname">Full Name:</label>
-                <span id="fullname"><?php echo $_SESSION['fullname']; ?></span>
-                <form id="changeFullnameForm" action="update_profile.php" method="POST">
-                    <input type="text" id="newFullname" name="fullname" required>
+                <span id="fullname"></span>
+                <form id="changeFullnameForm" onsubmit="updateProfile('fullname'); return false;">
+                    <input type="text" id="newFullname" required>
                     <button type="submit">Change Full Name</button>
                 </form>
             </div>
             <div>
                 <label for="username">Username:</label>
-                <span id="username"><?php echo $_SESSION['username']; ?></span>
-                <form id="changeUsernameForm" action="update_profile.php" method="POST">
-                    <input type="text" id="newUsername" name="username" required>
+                <span id="username"></span>
+                <form id="changeUsernameForm" onsubmit="updateProfile('username'); return false;">
+                    <input type="text" id="newUsername" required>
                     <button type="submit">Change Username</button>
                 </form>
             </div>
             <div>
                 <label for="email">Email:</label>
-                <span id="email"><?php echo $_SESSION['email']; ?></span>
-                <form id="changeEmailForm" action="update_profile.php" method="POST">
-                    <input type="email" id="newEmail" name="email" required>
+                <span id="email"></span>
+                <form id="changeEmailForm" onsubmit="updateProfile('email'); return false;">
+                    <input type="email" id="newEmail" required>
                     <button type="submit">Change Email</button>
                 </form>
             </div>
             <div>
                 <label for="phone">Phone:</label>
-                <span id="phone"><?php echo $_SESSION['phone']; ?></span>
-                <form id="changePhoneForm" action="update_profile.php" method="POST">
-                    <input type="text" id="newPhone" name="phone" required>
+                <span id="phone"></span>
+                <form id="changePhoneForm" onsubmit="updateProfile('phone'); return false;">
+                    <input type="text" id="newPhone" required>
                     <button type="submit">Change Phone</button>
                 </form>
             </div>
             <div>
                 <label for="address">Address:</label>
-                <span id="address"><?php echo $_SESSION['address']; ?></span>
-                <form id="changeAddressForm" action="update_profile.php" method="POST">
-                    <input type="text" id="newAddress" name="address" required>
+                <span id="address"></span>
+                <form id="changeAddressForm" onsubmit="updateProfile('address'); return false;">
+                    <input type="text" id="newAddress" required>
                     <button type="submit">Change Address</button>
                 </form>
             </div>
             <div>
                 <label for="password">Password:</label>
-                <form id="changePasswordForm" action="update_profile.php" method="POST">
-                    <input type="password" id="newPassword" name="password" required>
+                <form id="changePasswordForm" onsubmit="updateProfile('password'); return false;">
+                    <input type="password" id="newPassword" required>
                     <button type="submit">Change Password</button>
                 </form>
             </div>
             <h2>Envelopes</h2>
             <div id="envelopes"></div>
-            <button id="saveEnvelopesButton">Save Envelopes</button>
+            <button id="saveEnvelopesButton" onclick="saveEnvelopes()">Save Envelopes</button>
         </section>
     </section>
     <footer>
@@ -113,6 +108,5 @@ if (!isset($_SESSION['user_id'])) {
             </section>
         </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
