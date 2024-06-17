@@ -1,42 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "user_management";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
 session_start();
+$db = new SQLite3('user_management.db');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $_SESSION['user_id'];
+// Assuming a POST request with 'field' and 'value'
+$field = $_POST['field'];
+$value = $_POST['value'];
+$username = $_SESSION['username'];
 
-    if (isset($_POST['fullname'])) {
-        $fullname = $_POST['fullname'];
-        $sql = "UPDATE users SET fullname='$fullname' WHERE id='$user_id'";
-    } elseif (isset($_POST['username'])) {
-        $username = $_POST['username'];
-        $sql = "UPDATE users SET username='$username' WHERE id='$user_id'";
-    } elseif (isset($_POST['email'])) {
-        $email = $_POST['email'];
-        $sql = "UPDATE users SET email='$email' WHERE id='$user_id'";
-    } elseif (isset($_POST['phone'])) {
-        $phone = $_POST['phone'];
-        $sql = "UPDATE users SET phone='$phone' WHERE id='$user_id'";
-    } elseif (isset($_POST['address'])) {
-        $address = $_POST['address'];
-        $sql = "UPDATE users SET address='$address' WHERE id='$user_id'";
-    } elseif (isset($_POST['password'])) {
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $sql = "UPDATE users SET password='$password' WHERE id='$user_id'";
-    }
+$query = $db->prepare("UPDATE users SET $field = :value WHERE username = :username");
+$query->bindValue(':value', $value, SQLITE3_TEXT);
+$query->bindValue(':username', $username, SQLITE3_TEXT);
+$query->execute();
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Profile updated successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-$conn->close();
+echo "Profile updated successfully!";
 ?>

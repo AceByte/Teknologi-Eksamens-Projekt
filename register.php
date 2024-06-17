@@ -1,27 +1,21 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "user_management";
+$db = new SQLite3('user_management.db');
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$fullname = $_POST['fullname'];
+$username = $_POST['username'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$password = $_POST['password'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $fullname = $_POST['fullname'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
+$query = $db->prepare("INSERT INTO users (fullname, username, email, phone, address, password) VALUES (:fullname, :username, :email, :phone, :address, :password)");
+$query->bindValue(':fullname', $fullname, SQLITE3_TEXT);
+$query->bindValue(':username', $username, SQLITE3_TEXT);
+$query->bindValue(':email', $email, SQLITE3_TEXT);
+$query->bindValue(':phone', $phone, SQLITE3_TEXT);
+$query->bindValue(':address', $address, SQLITE3_TEXT);
+$query->bindValue(':password', $password, SQLITE3_TEXT);
+$query->execute();
 
-    $sql = "INSERT INTO users (username, email, password, fullname, phone, address) VALUES ('$username', '$email', '$password', '$fullname', '$phone', '$address')";
-    
-    if ($conn->query($sql) === TRUE) {
-        header("Location: login.html");
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-$conn->close();
+echo "Registration successful!";
 ?>

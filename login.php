@@ -1,36 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "user_management";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
 session_start();
+$db = new SQLite3('user_management.db');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+$username = $_SESSION['username'];
 
-    $sql = "SELECT * FROM users WHERE email='$email'";
-    $result = $conn->query($sql);
+$query = $db->prepare("SELECT envelopes FROM users WHERE username = :username");
+$query->bindValue(':username', $username, SQLITE3_TEXT);
+$result = $query->execute();
+$row = $result->fetchArray(SQLITE3_ASSOC);
 
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['fullname'] = $user['fullname'];
-            $_SESSION['phone'] = $user['phone'];
-            $_SESSION['address'] = $user['address'];
-            header("Location: index.html");
-        } else {
-            echo "Invalid password";
-        }
-    } else {
-        echo "No user found with this email";
-    }
-}
-$conn->close();
+echo json_encode($row['envelopes']);
 ?>
