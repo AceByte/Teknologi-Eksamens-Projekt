@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="loginstyle.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
-    <form id="loginForm" onsubmit="login(); return false;">
+    <form id="loginForm" method="POST" action="login.php">
         <h2>Login</h2>
         <div>
             <label for="email">Email:</label>
@@ -19,7 +18,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit" id="loginButton" class="submit">Login</button>
+        <button type="submit" class="submit">Login</button>
         <div class="options">
             <a href="register.html"><button type="button">Register</button></a>
             <a href="forgot_password.html"><button type="button">Forgot Password?</button></a>

@@ -2,12 +2,23 @@
 session_start();
 $db = new SQLite3('user_management.db');
 
-$username = $_SESSION['username'];
+// Get the form data
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-$query = $db->prepare("SELECT envelopes FROM users WHERE username = :username");
-$query->bindValue(':username', $username, SQLITE3_TEXT);
+// Prepare the query to fetch user data
+$query = $db->prepare("SELECT * FROM users WHERE email = :email");
+$query->bindValue(':email', $email, SQLITE3_TEXT);
 $result = $query->execute();
-$row = $result->fetchArray(SQLITE3_ASSOC);
 
-echo json_encode($row['envelopes']);
+// Fetch the user data
+$user = $result->fetchArray(SQLITE3_ASSOC);
+
+// Verify the password
+if ($user && password_verify($password, $user['password'])) {
+    $_SESSION['username'] = $user['username'];
+    echo "Login successful!";
+} else {
+    echo "Invalid login credentials!";
+}
 ?>
