@@ -1,6 +1,14 @@
 <?php
 session_start();
-$db = new SQLite3('user_management.db');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+try {
+    $db = new SQLite3('user_management.db');
+} catch (Exception $e) {
+    die("Failed to connect to the database: " . $e->getMessage());
+}
 
 // Get the form data
 $fullname = $_POST['fullname'];
