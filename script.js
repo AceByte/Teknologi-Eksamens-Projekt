@@ -94,11 +94,11 @@ document.addEventListener("DOMContentLoaded", function() {
         envelopesSection.appendChild(unassignedAmountDiv);
         var addEnvelopeButton = document.createElement("button");
         addEnvelopeButton.textContent = "Add Envelope";
-        addEnvelopeButton.className = "thing"; // Add class
+        addEnvelopeButton.className = "knap"; // Add class
         envelopesSection.appendChild(addEnvelopeButton);
         var removeEnvelopeButton = document.createElement("button");
         removeEnvelopeButton.textContent = "Remove Envelope";
-        removeEnvelopeButton.className = "thing"; // Add class
+        removeEnvelopeButton.className = "knap"; // Add class
         envelopesSection.appendChild(removeEnvelopeButton);
         addEnvelopeButton.addEventListener("click", function() {
             var newEnvelopeNumber = envelopeInputs.length + 1;
