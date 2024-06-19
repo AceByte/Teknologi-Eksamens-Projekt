@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Manage Your Economy</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#balance">Balance</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn" ><button type="button" class="option-button">Menu</button></a>
+                        <div class="dropdown-content">
+                            <a href="profil.html">Profile</a>
+                            <a href="login.html">Login</a>
+                            <a href="register.html">Register</a>
+                            <a href="login.html" id="logoutButton">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="main-sections-container">
+        <section id="home">
+            <h1>Welcome to Manage Your Economy</h1>
+        </section>
+        <section id="balance">
+            <h1>Balance</h1>
+            <p>Your current balance: <span id="current-balance">$<span id="totalAmount">0</span></span></p>
+            <h2>Envelopes</h2>
+            <div id="envelopes">
+            </div>
+            <p>Unassigned Amount: $<span id="unassignedAmount"></span></p>
+            <h2>Purchases</h2>
+            <ul id="purchases-list">
+                <li>
+                    <span>Purchase 1:</span>
+                    <span>$<span id="purchase1">0</span></span>
+                </li>
+                <li>
+                    <span>Purchase 2:</span>
+                    <span>$<span id="purchase2">0</span></span>
+                </li>
+                <li>
+                    <span>Purchase 3:</span>
+                    <span>$<span id="purchase3">0</span></span>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <footer>
+        <div class="container">
+            <section id="contact">
+                <h1>Contact Us</h1>
+                <p>Have questions or need assistance? Feel free to reach out to us at 
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td>Bertram Bischoff</td>
+                            <td><a href="mailto:bebi2@elev.tec.dk">bebi2@elev.tec.dk</a></td>
+                        </tr>
+                        <tr>
+                            <td>Frederik Molin</td>
+                            <td><a href="mailto:frmo2@elev.tec.dk">frmo2@elev.tec.dk</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nicolai Thau</td>
+                            <td><a href="mailto:nith1@elev.tec.dk">nith1@elev.tec.dk</a></td>
+                        </tr>
+                        </table></p>
+            </section>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
