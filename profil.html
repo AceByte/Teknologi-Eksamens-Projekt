@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>Manage Your Economy - Profile</title>
 </head>
 <body>
     <header>
@@ -14,12 +13,12 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn"><button type="button" class="option-button">Menu</button></a>
+                        <a href="javascript:void(0)" class="dropbtn" ><button type="button" class="option-button">Menu</button></a>
                         <div class="dropdown-content">
                             <a href="profil.html">Profile</a>
                             <a href="login.html">Login</a>
                             <a href="register.html">Register</a>
-                            <a href="javascript:void(0)" id="logoutButton">Logout</a>
+                            <a href="login.html" id="logoutButton">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -30,55 +29,37 @@
         <section id="profile">
             <h1>Profile</h1>
             <div>
-                <label for="fullname">Full Name:</label>
-                <span id="fullname"></span>
-                <form id="changeFullnameForm" onsubmit="updateProfile('fullname'); return false;">
-                    <input type="text" id="newFullname" required>
-                    <button type="submit">Change Full Name</button>
-                </form>
-            </div>
-            <div>
                 <label for="username">Username:</label>
                 <span id="username"></span>
-                <form id="changeUsernameForm" onsubmit="updateProfile('username'); return false;">
+                <form id="changeUsernameForm">
                     <input type="text" id="newUsername" required>
-                    <button type="submit">Change Username</button>
                 </form>
             </div>
             <div>
                 <label for="email">Email:</label>
                 <span id="email"></span>
-                <form id="changeEmailForm" onsubmit="updateProfile('email'); return false;">
-                    <input type="email" id="newEmail" required>
-                    <button type="submit">Change Email</button>
-                </form>
-            </div>
-            <div>
-                <label for="phone">Phone:</label>
-                <span id="phone"></span>
-                <form id="changePhoneForm" onsubmit="updateProfile('phone'); return false;">
-                    <input type="text" id="newPhone" required>
-                    <button type="submit">Change Phone</button>
-                </form>
-            </div>
-            <div>
-                <label for="address">Address:</label>
-                <span id="address"></span>
-                <form id="changeAddressForm" onsubmit="updateProfile('address'); return false;">
-                    <input type="text" id="newAddress" required>
-                    <button type="submit">Change Address</button>
+                <form id="changeEmailForm">
+                    <input type="text" id="newEmail" required>
                 </form>
             </div>
             <div>
                 <label for="password">Password:</label>
-                <form id="changePasswordForm" onsubmit="updateProfile('password'); return false;">
+                <span id="password"></span>
+                <form id="changePasswordForm">
                     <input type="password" id="newPassword" required>
-                    <button type="submit">Change Password</button>
                 </form>
             </div>
             <h2>Envelopes</h2>
-            <div id="envelopes"></div>
-            <button id="saveEnvelopesButton" onclick="saveEnvelopes()">Save Envelopes</button>
+            <div id="envelopes">
+            </div>
+            <h2>Total Account Balance</h2>
+            <div>
+                <label for="totalAmount">Total Amount:</label>
+                <span id="totalAmount"></span>
+                <form id="changeTotalAmountForm">
+                    <input type="number" id="newTotalAmount" required>
+                </form>
+            </div>
         </section>
     </section>
     <footer>
@@ -103,9 +84,10 @@
                             <td>Nicolai Thau</td>
                             <td><a href="mailto:nith1@elev.tec.dk">nith1@elev.tec.dk</a></td>
                         </tr>
-                    </table></p>
+                        </table></p>
             </section>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
