@@ -13,7 +13,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn" ><button type="button" class="option-button">Menu</button></a>
+                        <a href="javascript:void(0)" class="dropbtn"><button type="button" class="option-button">Menu</button></a>
                         <div class="dropdown-content">
                             <a href="profil.html">Profile</a>
                             <a href="login.html">Login</a>
@@ -28,36 +28,39 @@
     <section id="main-sections-container">
         <section id="profile">
             <h1>Profile</h1>
-            <div>
+            <div class="profile-item">
                 <label for="username">Username:</label>
                 <span id="username"></span>
                 <form id="changeUsernameForm">
-                    <input type="text" id="newUsername" required>
+                    <input type="text" id="newUsername" required placeholder="Enter new username">
+                    <button type="submit" class="thing">Change Username</button>
                 </form>
             </div>
-            <div>
+            <div class="profile-item">
                 <label for="email">Email:</label>
                 <span id="email"></span>
                 <form id="changeEmailForm">
-                    <input type="text" id="newEmail" required>
+                    <input type="email" id="newEmail" required placeholder="Enter new email">
+                    <button type="submit" class="thing">Change Email</button>
                 </form>
             </div>
-            <div>
+            <div class="profile-item">
                 <label for="password">Password:</label>
                 <span id="password"></span>
                 <form id="changePasswordForm">
-                    <input type="password" id="newPassword" required>
+                    <input type="password" id="newPassword" required placeholder="Enter new password">
+                    <button type="submit" class="thing">Change Password</button>
                 </form>
             </div>
             <h2>Envelopes</h2>
-            <div id="envelopes">
-            </div>
+            <div id="envelopes" class="profile-item"></div>
             <h2>Total Account Balance</h2>
-            <div>
+            <div class="profile-item">
                 <label for="totalAmount">Total Amount:</label>
                 <span id="totalAmount"></span>
                 <form id="changeTotalAmountForm">
-                    <input type="number" id="newTotalAmount" required>
+                    <input type="number" id="newTotalAmount" required placeholder="Enter new total amount">
+                    <button type="submit" class="thing">Change Total Amount</button>
                 </form>
             </div>
         </section>
@@ -66,25 +69,25 @@
         <div class="container">
             <section id="contact">
                 <h1>Contact Us</h1>
-                <p>Have questions or need assistance? Feel free to reach out to us at 
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                        </tr>
-                        <tr>
-                            <td>Bertram Bischoff</td>
-                            <td><a href="mailto:bebi2@elev.tec.dk">bebi2@elev.tec.dk</a></td>
-                        </tr>
-                        <tr>
-                            <td>Frederik Molin</td>
-                            <td><a href="mailto:frmo2@elev.tec.dk">frmo2@elev.tec.dk</a></td>
-                        </tr>
-                        <tr>
-                            <td>Nicolai Thau</td>
-                            <td><a href="mailto:nith1@elev.tec.dk">nith1@elev.tec.dk</a></td>
-                        </tr>
-                        </table></p>
+                <p>Have questions or need assistance? Feel free to reach out to us at:</p>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr>
+                        <td>Bertram Bischoff</td>
+                        <td><a href="mailto:bebi2@elev.tec.dk">bebi2@elev.tec.dk</a></td>
+                    </tr>
+                    <tr>
+                        <td>Frederik Molin</td>
+                        <td><a href="mailto:frmo2@elev.tec.dk">frmo2@elev.tec.dk</a></td>
+                    </tr>
+                    <tr>
+                        <td>Nicolai Thau</td>
+                        <td><a href="mailto:nith1@elev.tec.dk">nith1@elev.tec.dk</a></td>
+                    </tr>
+                </table>
             </section>
         </div>
     </footer>
